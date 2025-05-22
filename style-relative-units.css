@@ -1,0 +1,125 @@
+* {
+  /* CSS Reset */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  /* 
+    the default browser font size is 16px
+    by default 1rem = 16px
+  */
+  font-size: 62.5%; /* 62.5 * 16px = 10px, for easy size calculation. now 1rem = 10px*/
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(228, 221, 221);
+}
+.review-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1200px;
+  /* gap: 20px; */
+  gap: 2rem;
+  /* margin: 100px auto; */
+  margin: 10rem auto;
+  width: 90%; /* make sure the for screens less than 1200px the containt takes only 90% of the screen
+  so the left and right does not go all the way to the edges of screen for the samller windows */
+}
+.review-card {
+  background-color: white;
+  border: 1px solid darkgray;
+  border-radius: 9px;
+  /* padding: 9px; */
+  padding: 0.9rem;
+}
+
+.review-heading {
+  /* font-size: 40px; */
+  font-size: 2rem;
+  font-weight: 700;
+  /* margin-bottom: 20px; */
+  margin-bottom: 2rem;
+}
+.review-text {
+  /* font-size: 20px;
+  margin-bottom: 10px; */
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.review-person {
+  /* font-size: 18px; */
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+/* 
+  the rem value inside the media query is still based on the 16px event though we set it to 10px , it does not go through the media query.
+  the values inside the media query is still based on the default browser font size that is 16px
+*/
+
+/* 
+for 1000px =>
+1000px / 16px = 62.5 */
+@media (max-width: 62.5rem) {
+  html {
+    font-size: 50%;
+    /*
+      50% x 16px = 8px
+      now 1 rem = 8px
+      
+      just by changing the root element font size inside the medai query all other size in the page will relatively be resized and smalled and will 
+      calculated based on 1rem = 8px for screens smaller than 62.5rem or 1000px
+     */
+  }
+  /* 
+  instead of manually chaning all size of all elements we just change the font size of the root element that will 
+  relatively change the size of all the elements. 
+
+   */
+
+  /* .review-card {
+    padding: 7px;
+  }
+  .review-heading {
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+  .review-text {
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+  .review-person {
+    font-size: 16px;
+  } */
+}
+
+/* 500px
+31.25 x 16px = 500px */
+@media (max-width: 31.25rem) {
+  html {
+    font-size: 37.5%;
+    /* 16px x 37.5 = 6px
+    now everything that uses rem is calculated based on the 6px */
+  }
+  .review-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  /* .review-card {
+    padding: 6px;
+  }
+  .review-heading {
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  .review-text {
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+  .review-person {
+    font-size: 14px;
+  } */
+}
